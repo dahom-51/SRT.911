@@ -1,0 +1,148 @@
+.admin-dash {
+  display:    flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width:           240px;
+  flex-shrink:     0;
+  background:      var(--bg2);
+  border-left:     1px solid var(--border);
+  display:         flex;
+  flex-direction:  column;
+  position:        sticky;
+  top:             0;
+  height:          100vh;
+  overflow-y:      auto;
+}
+.admin-sidebar__logo {
+  display:     flex;
+  align-items: center;
+  gap:         0.5rem;
+  font-size:   1rem;
+  font-weight: 800;
+  color:       var(--accent);
+  padding:     1.25rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.admin-sidebar__nav {
+  flex:    1;
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap:     0.25rem;
+}
+.admin-nav-btn {
+  width:         100%;
+  text-align:    right;
+  background:    transparent;
+  border:        1px solid transparent;
+  border-radius: var(--radius);
+  padding:       0.6rem 0.75rem;
+  font-size:     0.875rem;
+  font-weight:   600;
+  color:         var(--text2);
+  cursor:        pointer;
+  transition:    all var(--transition);
+}
+.admin-nav-btn:hover        { color: var(--text); background: var(--surface); }
+.admin-nav-btn--active      { color: var(--accent); border-color: rgba(200,168,75,0.3); background: rgba(200,168,75,0.06); }
+.admin-sidebar__footer {
+  padding:    1rem;
+  border-top: 1px solid var(--border);
+}
+.admin-sidebar__user { font-size: 0.8rem; color: var(--text2); margin-bottom: 0.5rem; }
+
+/* Main area */
+.admin-main { flex: 1; padding: 2rem; overflow-x: hidden; }
+.admin-page-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+.admin-tab-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;
+}
+.admin-tab-header .admin-page-title { margin-bottom: 0; }
+
+/* Stats */
+.stats-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap:                   1rem;
+  margin-bottom:         2rem;
+}
+.stat-card {
+  background:    var(--bg2);
+  border:        1px solid var(--border);
+  border-radius: var(--radius2);
+  padding:       1.25rem;
+}
+.stat-card__label { font-size: 0.75rem; color: var(--text2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+.stat-card__value { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
+
+.admin-quick-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* Product table cell */
+.admin-product-cell { display: flex; align-items: center; gap: 0.65rem; }
+
+/* Modal */
+.modal-overlay {
+  position:        fixed;
+  inset:           0;
+  background:      rgba(0,0,0,0.75);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  z-index:         200;
+  padding:         1rem;
+  backdrop-filter: blur(4px);
+}
+.modal {
+  background:    var(--bg2);
+  border:        1px solid var(--border);
+  border-radius: var(--radius2);
+  width:         100%;
+  max-width:     640px;
+  max-height:    90vh;
+  display:       flex;
+  flex-direction: column;
+}
+.modal__header {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         1.25rem 1.5rem;
+  border-bottom:   1px solid var(--border);
+  font-size:       1.05rem;
+  font-weight:     700;
+}
+.modal__close {
+  background: none; border: none; color: var(--text2);
+  font-size: 1.1rem; cursor: pointer; padding: 4px;
+  border-radius: var(--radius);
+}
+.modal__close:hover { color: var(--text); background: var(--surface); }
+.modal__body  { padding: 1.5rem; overflow-y: auto; flex: 1; }
+.modal__footer {
+  padding:     1rem 1.5rem;
+  border-top:  1px solid var(--border);
+  display:     flex;
+  justify-content: flex-end;
+  gap:         0.75rem;
+}
+
+.admin-checkbox {
+  display:     flex;
+  align-items: center;
+  gap:         0.5rem;
+  font-size:   0.875rem;
+  color:       var(--text2);
+  cursor:      pointer;
+}
+.admin-checkbox input { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+@media (max-width: 768px) {
+  .admin-sidebar { display: none; }
+  .admin-main    { padding: 1.25rem; }
+  .form-row      { grid-template-columns: 1fr; }
+}

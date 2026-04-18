@@ -1,0 +1,21 @@
+.admin-login {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: var(--bg); padding: 1rem;
+}
+.admin-login__card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius2);
+  padding: 2.5rem; width: 100%; max-width: 400px;
+}
+.admin-login__logo {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 1.15rem; font-weight: 800; color: var(--accent); margin-bottom: 1.5rem;
+}
+.admin-login__logo span:first-child { font-size: 1.5rem; }
+.admin-login__title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.25rem; }
+.admin-login__sub { font-size: 0.85rem; color: var(--text2); margin-bottom: 1.5rem; }
+.admin-login__pass-wrap { position: relative; }
+.admin-login__show-pass {
+  position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: var(--text2); font-size: 0.78rem; cursor: pointer;
+}
+.admin-login__back { margin-top: 1.25rem; text-align: center; }
