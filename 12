@@ -1,0 +1,10 @@
+
+tar -xzf store-complete.tar.gz
+
+# ادخل على مجلد المشروع
+cd store
+
+# ابدأ git
+git init
+git add .
+git commit -m "first commit"
