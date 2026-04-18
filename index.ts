@@ -1,28 +1,20 @@
-import "dotenv/config";
-import app from "./app";
+import { Router, type Request, type Response } from "express";
+import authRouter       from "./auth";
+import productsRouter   from "./products";
+import categoriesRouter from "./categories";
+import ordersRouter     from "./orders";
+import paymentsRouter   from "./payments";
 
-const PORT = Number(process.env.PORT ?? 3001);
+const router = Router();
 
-// Validate required env vars on startup
-const required = ["DATABASE_URL", "JWT_SECRET", "CORS_ORIGIN"];
-const missing  = required.filter(k => !process.env[k]);
-if (missing.length > 0) {
-  console.error(`[STARTUP] Missing required environment variables: ${missing.join(", ")}`);
-  process.exit(1);
-}
-
-const server = app.listen(PORT, () => {
-  console.log(`[SERVER] Running on port ${PORT} (${process.env.NODE_ENV ?? "development"})`);
+router.get("/healthz", (_req: Request, res: Response) => {
+  res.json({ status: "ok", timestamp: new Date().toISOString(), version: "1.0.0" });
 });
 
-// Graceful shutdown
-const shutdown = () => {
-  console.log("[SERVER] Shutting down gracefully...");
-  server.close(() => {
-    console.log("[SERVER] Closed.");
-    process.exit(0);
-  });
-};
+router.use(authRouter);
+router.use(productsRouter);
+router.use(categoriesRouter);
+router.use(ordersRouter);
+router.use(paymentsRouter);
 
-process.on("SIGTERM", shutdown);
-process.on("SIGINT",  shutdown);
+export default router;
