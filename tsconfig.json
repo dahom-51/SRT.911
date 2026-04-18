@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target":                           "ES2022",
+    "module":                           "CommonJS",
+    "moduleResolution":                 "Bundler",
+    "lib":                              ["ES2022"],
+    "outDir":                           "./dist",
+    "rootDir":                          "./src",
+    "strict":                           true,
+    "esModuleInterop":                  true,
+    "allowSyntheticDefaultImports":     true,
+    "skipLibCheck":                     true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule":                true,
+    "sourceMap":                        true,
+    "noImplicitReturns":                true,
+    "ignoreDeprecations":               "5.0"
+  },
+  "include":  ["src/**/*"],
+  "exclude":  ["node_modules", "dist"]
+}
